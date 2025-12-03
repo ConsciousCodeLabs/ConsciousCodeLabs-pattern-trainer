@@ -1,0 +1,1 @@
+# ConsciousCodeLabs-pattern-trainer
