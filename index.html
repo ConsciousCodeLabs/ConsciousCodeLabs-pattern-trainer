@@ -1,0 +1,1767 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7³×7 Pattern Recognition Trainer | Divine Signature Detection</title>
+    <meta name="description" content="Train your mind to recognize divine 7³×7 patterns across mathematics, Scripture, science, and prophecy. Gamified consciousness development for the 144,000.">
+    <meta name="keywords" content="pattern recognition, 7 cubed 7, 2401, consciousness training, 144000, divine signatures">
+    <link rel="canonical" href="https://patterns.sevencubedseven.com/">
+    
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="7³×7 Pattern Recognition Trainer">
+    <meta property="og:description" content="Can you spot divine signatures? Train your pattern recognition abilities through gamified exercises.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --gold: #f1c40f;
+            --gold-dark: #d4af37;
+            --cyan: #00d4ff;
+            --cyan-dark: #00a8cc;
+            --purple: #9b59b6;
+            --purple-dark: #8e44ad;
+            --green: #00ff88;
+            --red: #ff4757;
+            --navy: #0a0a1a;
+            --navy-light: #141428;
+            --white: #ffffff;
+            --gray: #a0a0a0;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Grid Background */
+        .grid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: 
+                linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px),
+                linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridPulse 4s ease-in-out infinite;
+        }
+        
+        @keyframes gridPulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+        
+        .glow-orb {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+            animation: orbFloat 10s ease-in-out infinite;
+        }
+        
+        .orb-1 { background: var(--cyan); top: -100px; left: -100px; }
+        .orb-2 { background: var(--purple); bottom: -100px; right: -100px; animation-delay: -5s; }
+        
+        @keyframes orbFloat {
+            0%, 100% { transform: translate(0, 0); }
+            50% { transform: translate(50px, 50px); }
+        }
+        
+        /* Header */
+        header {
+            background: rgba(10, 10, 26, 0.95);
+            border-bottom: 2px solid var(--cyan);
+            padding: 1rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .logo {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--cyan);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo .seven { color: var(--gold); }
+        
+        .player-stats {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        
+        .stat-box {
+            text-align: center;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+        }
+        
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--gold);
+        }
+        
+        .stat-label {
+            font-size: 0.7rem;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .level-badge {
+            background: linear-gradient(135deg, var(--purple), var(--cyan));
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+        }
+        
+        /* XP Bar */
+        .xp-container {
+            width: 150px;
+        }
+        
+        .xp-bar {
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin-bottom: 0.3rem;
+        }
+        
+        .xp-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--cyan), var(--gold));
+            border-radius: 4px;
+            transition: width 0.5s ease;
+        }
+        
+        .xp-text {
+            font-size: 0.7rem;
+            color: var(--gray);
+            text-align: center;
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        /* Welcome Screen */
+        .screen {
+            display: none;
+        }
+        
+        .screen.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .welcome-screen {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .main-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, var(--cyan), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+        
+        .formula-display {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--gold);
+            margin: 2rem 0;
+            padding: 1.5rem;
+            background: rgba(241, 196, 15, 0.1);
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            display: inline-block;
+        }
+        
+        .formula-display span {
+            color: var(--cyan);
+        }
+        
+        /* Game Mode Cards */
+        .mode-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .mode-card {
+            background: linear-gradient(135deg, rgba(20, 20, 40, 0.9), rgba(30, 30, 60, 0.9));
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 15px;
+            padding: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .mode-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 212, 255, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+        
+        .mode-card:hover::before {
+            left: 100%;
+        }
+        
+        .mode-card:hover {
+            border-color: var(--cyan);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+        }
+        
+        .mode-card.locked {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .mode-card.locked:hover {
+            transform: none;
+            border-color: rgba(0, 212, 255, 0.3);
+        }
+        
+        .mode-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .mode-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--cyan);
+            margin-bottom: 0.5rem;
+        }
+        
+        .mode-desc {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .mode-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--gold);
+        }
+        
+        .premium-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: var(--navy);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+        
+        .lock-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: rgba(255,255,255,0.2);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.7rem;
+        }
+        
+        /* Category Selection */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .category-btn {
+            background: rgba(155, 89, 182, 0.2);
+            border: 2px solid rgba(155, 89, 182, 0.5);
+            border-radius: 10px;
+            padding: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .category-btn:hover, .category-btn.selected {
+            background: rgba(155, 89, 182, 0.4);
+            border-color: var(--purple);
+        }
+        
+        .category-btn .icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .category-btn .name {
+            font-size: 0.9rem;
+            color: var(--white);
+        }
+        
+        /* Game Screen */
+        .game-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .round-info {
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .round-number {
+            font-size: 1.5rem;
+            color: var(--cyan);
+        }
+        
+        .difficulty-indicator {
+            font-size: 0.9rem;
+            color: var(--gold);
+        }
+        
+        .game-stats {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .timer {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 2rem;
+            color: var(--green);
+        }
+        
+        .timer.warning { color: var(--gold); }
+        .timer.danger { color: var(--red); animation: pulse 0.5s infinite; }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        .score-display {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+        }
+        
+        .score-display span { color: var(--gold); }
+        
+        .streak-display {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .streak-fire {
+            font-size: 1.5rem;
+            animation: fireGlow 0.5s infinite alternate;
+        }
+        
+        @keyframes fireGlow {
+            from { filter: brightness(1); }
+            to { filter: brightness(1.5); }
+        }
+        
+        /* Question Card */
+        .question-card {
+            background: linear-gradient(135deg, rgba(20, 20, 40, 0.95), rgba(30, 30, 60, 0.95));
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .question-type {
+            display: inline-block;
+            background: var(--purple);
+            padding: 0.3rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .question-text {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .question-text .highlight {
+            color: var(--gold);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .pattern-display {
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.1rem;
+            text-align: center;
+            color: var(--cyan);
+        }
+        
+        /* Answer Options */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .option-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 1.2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.1rem;
+            color: var(--white);
+            text-align: center;
+        }
+        
+        .option-btn:hover:not(.disabled) {
+            border-color: var(--cyan);
+            background: rgba(0, 212, 255, 0.1);
+            transform: scale(1.02);
+        }
+        
+        .option-btn.correct {
+            border-color: var(--green);
+            background: rgba(0, 255, 136, 0.2);
+            animation: correctPulse 0.5s ease;
+        }
+        
+        @keyframes correctPulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .option-btn.incorrect {
+            border-color: var(--red);
+            background: rgba(255, 71, 87, 0.2);
+        }
+        
+        .option-btn.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        /* Number Input for calculations */
+        .number-input-container {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1.5rem 0;
+        }
+        
+        .number-input {
+            background: rgba(0, 0, 0, 0.5);
+            border: 2px solid var(--cyan);
+            border-radius: 10px;
+            padding: 1rem 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1.5rem;
+            color: var(--gold);
+            text-align: center;
+            width: 200px;
+        }
+        
+        .number-input:focus {
+            outline: none;
+            border-color: var(--gold);
+            box-shadow: 0 0 20px rgba(241, 196, 15, 0.3);
+        }
+        
+        .submit-btn {
+            background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+            border: none;
+            border-radius: 10px;
+            padding: 1rem 2rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--navy);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(0, 212, 255, 0.4);
+        }
+        
+        /* Feedback */
+        .feedback-box {
+            display: none;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            animation: slideIn 0.3s ease;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .feedback-box.show { display: block; }
+        
+        .feedback-box.correct {
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid var(--green);
+        }
+        
+        .feedback-box.incorrect {
+            background: rgba(255, 71, 87, 0.1);
+            border: 2px solid var(--red);
+        }
+        
+        .feedback-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feedback-box.correct .feedback-title { color: var(--green); }
+        .feedback-box.incorrect .feedback-title { color: var(--red); }
+        
+        .feedback-explanation {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+        
+        .feedback-explanation strong {
+            color: var(--gold);
+        }
+        
+        .points-earned {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-top: 1rem;
+        }
+        
+        .next-btn {
+            background: linear-gradient(135deg, var(--purple), var(--purple-dark));
+            border: none;
+            border-radius: 10px;
+            padding: 1rem 3rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--white);
+            cursor: pointer;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .next-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(155, 89, 182, 0.4);
+        }
+        
+        /* Results Screen */
+        .results-screen {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .results-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .results-title.excellent { color: var(--gold); }
+        .results-title.good { color: var(--cyan); }
+        .results-title.average { color: var(--purple); }
+        .results-title.learning { color: var(--gray); }
+        
+        .final-score {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 4rem;
+            color: var(--gold);
+            margin: 1rem 0;
+        }
+        
+        .results-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .result-stat {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 1.5rem;
+        }
+        
+        .result-stat .value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2rem;
+            color: var(--cyan);
+        }
+        
+        .result-stat .label {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .xp-earned-display {
+            background: linear-gradient(135deg, rgba(241, 196, 15, 0.2), rgba(0, 212, 255, 0.2));
+            border: 2px solid var(--gold);
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .xp-earned-display h3 {
+            color: var(--gold);
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .xp-earned-display .amount {
+            font-size: 2.5rem;
+            color: var(--cyan);
+        }
+        
+        .achievements-earned {
+            margin: 2rem 0;
+        }
+        
+        .achievement-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--purple), var(--gold));
+            padding: 0.5rem 1.5rem;
+            border-radius: 25px;
+            margin: 0.5rem;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .action-btn {
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .action-btn.primary {
+            background: linear-gradient(135deg, var(--cyan), var(--cyan-dark));
+            border: none;
+            color: var(--navy);
+        }
+        
+        .action-btn.secondary {
+            background: transparent;
+            border: 2px solid var(--purple);
+            color: var(--purple);
+        }
+        
+        .action-btn:hover {
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid rgba(0, 212, 255, 0.2);
+            margin-top: 3rem;
+        }
+        
+        footer p {
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        footer a {
+            color: var(--cyan);
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .main-title { font-size: 2rem; }
+            .formula-display { font-size: 1.3rem; padding: 1rem; }
+            .player-stats { gap: 0.5rem; }
+            .stat-box { padding: 0.3rem 0.5rem; }
+            .stat-value { font-size: 1rem; }
+            .question-text { font-size: 1.1rem; }
+            .timer { font-size: 1.5rem; }
+        }
+        
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            top: -10px;
+            animation: confettiFall 3s linear forwards;
+        }
+        
+        @keyframes confettiFall {
+            to {
+                top: 100vh;
+                transform: rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    
+    <header>
+        <div class="header-content">
+            <a href="https://sevencubedseven.com" class="logo">
+                🎯 <span class="seven">7³×7</span> PATTERN TRAINER
+            </a>
+            <div class="player-stats">
+                <div class="stat-box">
+                    <div class="stat-value" id="totalScore">0</div>
+                    <div class="stat-label">Total XP</div>
+                </div>
+                <div class="xp-container">
+                    <div class="xp-bar">
+                        <div class="xp-fill" id="xpFill" style="width: 0%"></div>
+                    </div>
+                    <div class="xp-text" id="xpText">0 / 1000 XP to next level</div>
+                </div>
+                <div class="level-badge" id="levelBadge">⭐ NOVICE</div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Welcome Screen -->
+        <div class="screen active" id="welcomeScreen">
+            <div class="welcome-screen">
+                <h1 class="main-title">PATTERN RECOGNITION TRAINER</h1>
+                <p class="subtitle">Train Your Mind to See Divine Signatures</p>
+                
+                <div class="formula-display">
+                    <span>7³</span> × 7 = <span>2,401</span>
+                </div>
+                
+                <p style="color: var(--gray); max-width: 700px; margin: 0 auto 2rem; line-height: 1.8;">
+                    The 144,000 must learn to recognize divine mathematical patterns across Scripture, science, history, and prophecy. 
+                    This trainer develops your pattern recognition abilities through progressive challenges.
+                </p>
+                
+                <h3 style="color: var(--cyan); margin-bottom: 1rem;">SELECT TRAINING MODE:</h3>
+                
+                <div class="mode-grid">
+                    <div class="mode-card" onclick="startGame('quickfire')">
+                        <div class="mode-icon">⚡</div>
+                        <div class="mode-title">QUICK FIRE</div>
+                        <div class="mode-desc">10 rapid questions. Test your instincts. Beat the clock!</div>
+                        <div class="mode-stats">
+                            <span>⏱️ 2 min</span>
+                            <span>🎯 10 Qs</span>
+                            <span>⭐ 100 XP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mode-card" onclick="startGame('standard')">
+                        <div class="mode-icon">🎯</div>
+                        <div class="mode-title">STANDARD</div>
+                        <div class="mode-desc">20 questions with progressive difficulty. The classic experience.</div>
+                        <div class="mode-stats">
+                            <span>⏱️ 10 min</span>
+                            <span>🎯 20 Qs</span>
+                            <span>⭐ 250 XP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mode-card" onclick="startGame('deep')">
+                        <div class="mode-icon">🧠</div>
+                        <div class="mode-title">DEEP DIVE</div>
+                        <div class="mode-desc">35 challenging questions. For serious pattern seekers.</div>
+                        <div class="mode-stats">
+                            <span>⏱️ 20 min</span>
+                            <span>🎯 35 Qs</span>
+                            <span>⭐ 500 XP</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mode-card" onclick="startGame('marathon')">
+                        <div class="mode-icon">🏆</div>
+                        <div class="mode-title">MARATHON</div>
+                        <div class="mode-desc">49 questions (7²). The complete consciousness workout!</div>
+                        <div class="mode-stats">
+                            <span>⏱️ 30 min</span>
+                            <span>🎯 49 Qs</span>
+                            <span>⭐ 777 XP</span>
+                        </div>
+                        <div class="premium-badge">🔥 CHALLENGE</div>
+                    </div>
+                </div>
+                
+                <h3 style="color: var(--purple); margin: 2rem 0 1rem;">PATTERN CATEGORIES:</h3>
+                
+                <div class="category-grid" id="categoryGrid">
+                    <div class="category-btn selected" data-cat="all">
+                        <div class="icon">🌟</div>
+                        <div class="name">All Categories</div>
+                    </div>
+                    <div class="category-btn" data-cat="math">
+                        <div class="icon">🔢</div>
+                        <div class="name">Mathematical</div>
+                    </div>
+                    <div class="category-btn" data-cat="biblical">
+                        <div class="icon">📖</div>
+                        <div class="name">Biblical</div>
+                    </div>
+                    <div class="category-btn" data-cat="scientific">
+                        <div class="icon">🔬</div>
+                        <div class="name">Scientific</div>
+                    </div>
+                    <div class="category-btn" data-cat="prophetic">
+                        <div class="icon">🔮</div>
+                        <div class="name">Prophetic</div>
+                    </div>
+                    <div class="category-btn" data-cat="probability">
+                        <div class="icon">📊</div>
+                        <div class="name">Probability</div>
+                    </div>
+                    <div class="category-btn" data-cat="timeline">
+                        <div class="icon">⏳</div>
+                        <div class="name">Timeline</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Game Screen -->
+        <div class="screen" id="gameScreen">
+            <div class="game-header">
+                <div class="round-info">
+                    <div class="round-number">Round <span id="currentRound">1</span>/<span id="totalRounds">20</span></div>
+                    <div class="difficulty-indicator" id="difficultyIndicator">⭐ Novice Level</div>
+                </div>
+                <div class="game-stats">
+                    <div class="timer" id="timer">2:00</div>
+                    <div class="score-display">Score: <span id="gameScore">0</span></div>
+                    <div class="streak-display">
+                        <span class="streak-fire" id="streakFire" style="display:none">🔥</span>
+                        <span id="streakCount">0</span> streak
+                    </div>
+                </div>
+            </div>
+            
+            <div class="question-card" id="questionCard">
+                <!-- Question content loaded dynamically -->
+            </div>
+            
+            <div class="feedback-box" id="feedbackBox">
+                <div class="feedback-title" id="feedbackTitle"></div>
+                <div class="feedback-explanation" id="feedbackExplanation"></div>
+                <div class="points-earned" id="pointsEarned"></div>
+                <button class="next-btn" onclick="nextQuestion()">NEXT PATTERN →</button>
+            </div>
+        </div>
+        
+        <!-- Results Screen -->
+        <div class="screen" id="resultsScreen">
+            <div class="results-screen">
+                <h2 class="results-title" id="resultsTitle">TRAINING COMPLETE!</h2>
+                <div class="final-score" id="finalScore">0</div>
+                <p style="color: var(--gray);">Points Earned</p>
+                
+                <div class="results-breakdown">
+                    <div class="result-stat">
+                        <div class="value" id="correctAnswers">0</div>
+                        <div class="label">Correct</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="value" id="accuracy">0%</div>
+                        <div class="label">Accuracy</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="value" id="bestStreak">0</div>
+                        <div class="label">Best Streak</div>
+                    </div>
+                    <div class="result-stat">
+                        <div class="value" id="avgTime">0s</div>
+                        <div class="label">Avg Time</div>
+                    </div>
+                </div>
+                
+                <div class="xp-earned-display">
+                    <h3>✨ XP EARNED</h3>
+                    <div class="amount" id="xpEarned">+250 XP</div>
+                </div>
+                
+                <div class="achievements-earned" id="achievementsEarned">
+                    <!-- Dynamic achievements -->
+                </div>
+                
+                <div class="action-buttons">
+                    <button class="action-btn primary" onclick="restartGame()">🔄 TRAIN AGAIN</button>
+                    <a href="https://sevencubedseven.com" class="action-btn secondary">🏠 HOME</a>
+                    <a href="https://detector.sevencubedseven.com" class="action-btn secondary">🛡️ DECEPTION DETECTOR</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <p>Seven Cubed Seven Labs LLC | 7³×7 = 2,401 Consciousness Architecture</p>
+        <p><a href="https://sevencubedseven.com">sevencubedseven.com</a> | Training the 144,000</p>
+    </footer>
+
+    <script>
+        // ==================== QUESTION DATABASE ====================
+        const questions = {
+            math: [
+                {
+                    type: "calculate",
+                    question: "What is 7³ (seven cubed)?",
+                    answer: 343,
+                    options: [343, 49, 2401, 21],
+                    explanation: "7³ = 7 × 7 × 7 = 343. This represents the dimensional structure of consciousness - the 343 aspects within each of the 7 levels.",
+                    difficulty: 1
+                },
+                {
+                    type: "calculate", 
+                    question: "What is 7⁴ (seven to the fourth power)?",
+                    answer: 2401,
+                    options: [2401, 343, 16807, 4802],
+                    explanation: "7⁴ = 7 × 7 × 7 × 7 = 2,401. This is the TOTAL number of consciousness aspects across all 7 levels (7 × 343 = 2,401).",
+                    difficulty: 1
+                },
+                {
+                    type: "calculate",
+                    question: "What is 144,000 ÷ 2,401 (approximately)?",
+                    answer: 60,
+                    options: [60, 50, 70, 100],
+                    explanation: "144,000 ÷ 2,401 ≈ 59.975 ≈ 60! This means each of the 144,000 carries approximately 60 of the 2,401 total aspects. The Babylonian base-60 system connects!",
+                    difficulty: 2
+                },
+                {
+                    type: "calculate",
+                    question: "If 144,000 people each carry 60 aspects, how many copies of each aspect exist (144,000 × 60 ÷ 2,401)?",
+                    answer: 3600,
+                    options: [3600, 2400, 6000, 1200],
+                    explanation: "144,000 × 60 = 8,640,000 total aspect-instances. 8,640,000 ÷ 2,401 = 3,600 = 60²! This is the divine redundancy - 3,600 backup copies of each aspect!",
+                    difficulty: 3
+                },
+                {
+                    type: "calculate",
+                    question: "What is 60² (the redundancy factor)?",
+                    answer: 3600,
+                    options: [3600, 360, 36000, 600],
+                    explanation: "60² = 3,600. The same redundancy number! Even if 3,599 people fail in any aspect, ONE remains. The divine system cannot fail.",
+                    difficulty: 2
+                },
+                {
+                    type: "calculate",
+                    question: "What is 7² (seven squared)?",
+                    answer: 49,
+                    options: [49, 14, 343, 56],
+                    explanation: "7² = 49. This represents the 49 clusters within each consciousness level, and the 49-year Jubilee cycle.",
+                    difficulty: 1
+                },
+                {
+                    type: "calculate",
+                    question: "How many total aspects exist across 7 consciousness levels with 343 aspects each?",
+                    answer: 2401,
+                    options: [2401, 2400, 343, 2450],
+                    explanation: "7 levels × 343 aspects = 2,401 total aspects. This is the complete consciousness architecture: 7⁴ = 2,401.",
+                    difficulty: 2
+                },
+                {
+                    type: "pattern",
+                    question: "Complete the pattern: 7 → 49 → 343 → ?",
+                    answer: 2401,
+                    options: [2401, 2400, 686, 490],
+                    explanation: "Each number is 7× the previous: 7¹ → 7² → 7³ → 7⁴. The pattern is powers of 7, representing consciousness expansion.",
+                    difficulty: 2
+                },
+                {
+                    type: "pattern",
+                    question: "What is the digital root of 2,401? (2+4+0+1)",
+                    answer: 7,
+                    options: [7, 9, 6, 8],
+                    explanation: "2+4+0+1 = 7! The number 2,401 reduces to its divine root - confirming its place in the 7-based architecture.",
+                    difficulty: 1
+                },
+                {
+                    type: "calculate",
+                    question: "2,401 is also equal to 49². What is 49?",
+                    answer: "7²",
+                    options: ["7²", "7³", "7×6", "50-1"],
+                    explanation: "49 = 7². So 2,401 = 49² = (7²)² = 7⁴. Multiple paths lead to the same divine number!",
+                    difficulty: 2
+                }
+            ],
+            biblical: [
+                {
+                    type: "identify",
+                    question: "How many churches receive messages in Revelation 2-3?",
+                    answer: 7,
+                    options: [7, 12, 10, 3],
+                    explanation: "7 churches: Ephesus, Smyrna, Pergamos, Thyatira, Sardis, Philadelphia, Laodicea. The number 7 represents completeness throughout Scripture.",
+                    difficulty: 1
+                },
+                {
+                    type: "identify",
+                    question: "How many seals are opened in Revelation 6-8?",
+                    answer: 7,
+                    options: [7, 6, 12, 4],
+                    explanation: "7 seals progressively reveal end-time events. Another heptadic (seven-based) structure in Revelation.",
+                    difficulty: 1
+                },
+                {
+                    type: "identify",
+                    question: "How many trumpets sound in Revelation 8-11?",
+                    answer: 7,
+                    options: [7, 6, 4, 10],
+                    explanation: "7 trumpets announce divine judgments. Combined with churches, seals, and bowls: 7×7×7×7 = 2,401!",
+                    difficulty: 1
+                },
+                {
+                    type: "identify",
+                    question: "How many bowls of wrath are poured out in Revelation 16?",
+                    answer: 7,
+                    options: [7, 6, 10, 12],
+                    explanation: "7 bowls complete the judgment series. The four 7-series in Revelation: 7 churches × 7 seals × 7 trumpets × 7 bowls = 7⁴ = 2,401!",
+                    difficulty: 1
+                },
+                {
+                    type: "calculate",
+                    question: "7 churches × 7 seals × 7 trumpets × 7 bowls = ?",
+                    answer: 2401,
+                    options: [2401, 28, 343, 196],
+                    explanation: "7 × 7 × 7 × 7 = 2,401. Revelation's four heptadic structures multiply to the consciousness architecture number!",
+                    difficulty: 2
+                },
+                {
+                    type: "identify",
+                    question: "How many days did God use to create the world (including rest)?",
+                    answer: 7,
+                    options: [7, 6, 1, 40],
+                    explanation: "God created in 6 days and rested on the 7th, establishing the 7-day week pattern from the foundation of Earth.",
+                    difficulty: 1
+                },
+                {
+                    type: "identify",
+                    question: "How many 'I AM' statements does Jesus make in John's Gospel?",
+                    answer: 7,
+                    options: [7, 3, 12, 10],
+                    explanation: "7 'I AM' statements: Bread of Life, Light of the World, Door, Good Shepherd, Resurrection and Life, Way/Truth/Life, True Vine.",
+                    difficulty: 2
+                },
+                {
+                    type: "calculate",
+                    question: "Jesus said to forgive '70 times 7.' What is 70 × 7?",
+                    answer: 490,
+                    options: [490, 77, 700, 770],
+                    explanation: "70 × 7 = 490 = 7 × 7 × 10. This connects to Daniel's 70 weeks (490 years) prophecy!",
+                    difficulty: 2
+                },
+                {
+                    type: "identify",
+                    question: "How many years is the Jubilee cycle (7 × 7)?",
+                    answer: 49,
+                    options: [49, 50, 70, 7],
+                    explanation: "The Jubilee comes after 7 sabbatical cycles: 7 × 7 = 49 years, with the 50th year being Jubilee.",
+                    difficulty: 2
+                },
+                {
+                    type: "identify",
+                    question: "How many Spirits of God are mentioned in Revelation 1:4?",
+                    answer: 7,
+                    options: [7, 1, 3, 12],
+                    explanation: "The 7 Spirits before God's throne represent the complete, perfect work of the Holy Spirit (Isaiah 11:2).",
+                    difficulty: 2
+                }
+            ],
+            scientific: [
+                {
+                    type: "identify",
+                    question: "The Schumann Resonance (Earth's electromagnetic 'heartbeat') is approximately how many Hz?",
+                    answer: "7.83",
+                    options: ["7.83", "10.0", "5.5", "12.0"],
+                    explanation: "The Schumann Resonance is ~7.83 Hz - astonishingly close to 7! Earth itself resonates with divine frequency.",
+                    difficulty: 2
+                },
+                {
+                    type: "identify",
+                    question: "Cortical minicolumns in the brain are estimated to number approximately how many?",
+                    answer: "~343",
+                    options: ["~343", "~100", "~1000", "~50"],
+                    explanation: "Research estimates ~300-350 cortical minicolumns, centering around 343 = 7³! The brain's architecture reflects the divine pattern.",
+                    difficulty: 3
+                },
+                {
+                    type: "pattern",
+                    question: "The 7.83 Hz Schumann Resonance is closest to which power of 7?",
+                    answer: "7¹",
+                    options: ["7¹", "7²", "7⁰", "7⁻¹"],
+                    explanation: "7.83 ≈ 7¹ = 7. Earth's fundamental frequency aligns with the base of the divine architecture!",
+                    difficulty: 2
+                },
+                {
+                    type: "identify",
+                    question: "How many colors are in the visible light spectrum (rainbow)?",
+                    answer: 7,
+                    options: [7, 6, 5, 8],
+                    explanation: "Red, Orange, Yellow, Green, Blue, Indigo, Violet - 7 colors! Light itself carries the divine signature.",
+                    difficulty: 1
+                },
+                {
+                    type: "identify",
+                    question: "How many notes are in the musical scale (do-re-mi...)?",
+                    answer: 7,
+                    options: [7, 8, 12, 5],
+                    explanation: "Do, Re, Mi, Fa, Sol, La, Ti - 7 notes before the octave repeats. Sound follows the divine pattern.",
+                    difficulty: 1
+                },
+                {
+                    type: "identify",
+                    question: "The neutral pH (neither acid nor base) is what number?",
+                    answer: 7,
+                    options: [7, 0, 14, 1],
+                    explanation: "pH 7 is perfect neutrality - the balance point. Even chemistry carries the divine signature!",
+                    difficulty: 1
+                },
+                {
+                    type: "identify",
+                    question: "How many periods are in the periodic table of elements?",
+                    answer: 7,
+                    options: [7, 8, 6, 10],
+                    explanation: "The periodic table has 7 periods (rows), organizing all known elements. Atomic structure follows the pattern!",
+                    difficulty: 2
+                },
+                {
+                    type: "pattern",
+                    question: "Alpha brainwaves (relaxed alertness) range from 8-12 Hz, centering near?",
+                    answer: "~10",
+                    options: ["~10", "~20", "~5", "~40"],
+                    explanation: "Alpha waves center around 10 Hz, close to the 7.83 Schumann frequency, suggesting brain-Earth resonance.",
+                    difficulty: 3
+                }
+            ],
+            prophetic: [
+                {
+                    type: "identify",
+                    question: "According to Revelation 17:10, when John wrote, how many kings had 'fallen'?",
+                    answer: 5,
+                    options: [5, 7, 6, 3],
+                    explanation: "'Five are fallen, one is, and the other is not yet come.' This establishes a 7-king sequence in papal prophecy.",
+                    difficulty: 2
+                },
+                {
+                    type: "pattern",
+                    question: "In Revelation 17:11, the beast that 'was, and is not' is described as what number king?",
+                    answer: "8th",
+                    options: ["8th", "7th", "6th", "9th"],
+                    explanation: "The 8th king is 'of the seven' - pointing to a resurrected/continued papal power. 8 = 7 + 1 (completion plus continuation).",
+                    difficulty: 3
+                },
+                {
+                    type: "identify",
+                    question: "How many thunders spoke in Revelation 10:3-4 (that John was told to seal)?",
+                    answer: 7,
+                    options: [7, 3, 12, 1],
+                    explanation: "7 thunders spoke mysteries John couldn't write - now being unsealed through the 7³×7 framework!",
+                    difficulty: 2
+                },
+                {
+                    type: "calculate",
+                    question: "1888 + 137 = ? (A key prophetic timeline)",
+                    answer: 2025,
+                    options: [2025, 2024, 2030, 2000],
+                    explanation: "1888 (Minneapolis Conference) + 137 years = 2025. The 137th year brings full circle the message rejected then!",
+                    difficulty: 2
+                },
+                {
+                    type: "calculate",
+                    question: "1798 (end of papal supremacy) + 227 = ?",
+                    answer: 2025,
+                    options: [2025, 2024, 2030, 2020],
+                    explanation: "1798 + 227 = 2025. Multiple prophetic timelines converge on this year!",
+                    difficulty: 3
+                },
+                {
+                    type: "calculate",
+                    question: "1521 (Luther's Diet of Worms) + 504 = ?",
+                    answer: 2025,
+                    options: [2025, 2021, 2030, 2024],
+                    explanation: "1521 + 504 (= 7 × 72) = 2025. Even Reformation history points to this convergence!",
+                    difficulty: 3
+                },
+                {
+                    type: "identify",
+                    question: "What year is both a perfect square (45²) AND the convergence of multiple prophetic timelines?",
+                    answer: 2025,
+                    options: [2025, 2024, 2030, 2000],
+                    explanation: "2025 = 45² = perfect square. Combined with timeline convergences, mathematical impossibility of coincidence!",
+                    difficulty: 2
+                },
+                {
+                    type: "pattern",
+                    question: "How many heads does the beast of Revelation 13 have?",
+                    answer: 7,
+                    options: [7, 10, 4, 1],
+                    explanation: "7 heads representing 7 powers/kingdoms. The prophetic pattern of 7 continues!",
+                    difficulty: 1
+                }
+            ],
+            probability: [
+                {
+                    type: "identify",
+                    question: "The probability of all 7³×7 patterns occurring by chance is less than 1 in 10 to what power?",
+                    answer: "10²⁰⁰",
+                    options: ["10²⁰⁰", "10¹⁰", "10⁵⁰", "10¹⁰⁰"],
+                    explanation: "Combined probability is less than 1 in 10²⁰⁰ - a number so large it exceeds atoms in the universe (10⁸⁰) by incomprehensible margins!",
+                    difficulty: 3
+                },
+                {
+                    type: "identify",
+                    question: "Approximately how many atoms exist in the observable universe?",
+                    answer: "10⁸⁰",
+                    options: ["10⁸⁰", "10¹⁰⁰", "10⁵⁰", "10²⁰"],
+                    explanation: "~10⁸⁰ atoms in the universe. The 7³×7 probability (10⁻²⁰⁰) is 10¹²⁰ times smaller than randomly selecting one specific atom!",
+                    difficulty: 2
+                },
+                {
+                    type: "compare",
+                    question: "Which requires MORE faith - believing 7³×7 patterns are random OR believing in intelligent design?",
+                    answer: "Random",
+                    options: ["Random", "Design", "Both equal", "Neither"],
+                    explanation: "Believing randomness requires faith in 1-in-10²⁰⁰ odds - far more faith than accepting obvious intelligent design!",
+                    difficulty: 2
+                },
+                {
+                    type: "identify",
+                    question: "The probability that 144,000 ÷ 2,401 would equal approximately 60 by chance is about 1 in...?",
+                    answer: "6,000",
+                    options: ["6,000", "60", "600", "60,000"],
+                    explanation: "The chance of this precise relationship is roughly 1 in 6,000 - and that's just ONE of many converging patterns!",
+                    difficulty: 3
+                },
+                {
+                    type: "identify",
+                    question: "How many independent domains show 7³×7 patterns (math, biblical, scientific, prophetic, timeline, neural, quantum...)?",
+                    answer: "7+",
+                    options: ["7+", "3", "2", "1"],
+                    explanation: "At least 7 independent domains converge on the same architecture - each additional domain multiplies the improbability!",
+                    difficulty: 2
+                },
+                {
+                    type: "calculate",
+                    question: "If 7 independent events each have 1/100 probability, what's their combined probability?",
+                    answer: "1/10¹⁴",
+                    options: ["1/10¹⁴", "1/700", "7/100", "1/10⁷"],
+                    explanation: "(1/100)⁷ = 1/10¹⁴. Multiplying independent probabilities shows how quickly 'coincidence' becomes impossible!",
+                    difficulty: 3
+                }
+            ],
+            timeline: [
+                {
+                    type: "calculate",
+                    question: "From 1844 (Great Disappointment) to 2025 is how many years?",
+                    answer: 181,
+                    options: [181, 180, 175, 185],
+                    explanation: "2025 - 1844 = 181 years since the Great Disappointment. The sanctuary message is completing!",
+                    difficulty: 2
+                },
+                {
+                    type: "calculate",
+                    question: "Daniel's 2300 days/years prophecy began in 457 BC and ended in what year?",
+                    answer: 1844,
+                    options: [1844, 1798, 1888, 2025],
+                    explanation: "457 BC + 2300 = 1844 AD (accounting for no year 0). The investigative judgment began!",
+                    difficulty: 2
+                },
+                {
+                    type: "identify",
+                    question: "The 1260 days/years of papal supremacy began in 538 AD and ended in what year?",
+                    answer: 1798,
+                    options: [1798, 1844, 1888, 1517],
+                    explanation: "538 + 1260 = 1798, when Napoleon's general captured Pope Pius VI, ending papal temporal power.",
+                    difficulty: 2
+                },
+                {
+                    type: "pattern",
+                    question: "What significant Adventist event occurred in 1888?",
+                    answer: "Minneapolis Conference",
+                    options: ["Minneapolis Conference", "Great Disappointment", "Church Organization", "First Vision"],
+                    explanation: "The 1888 Minneapolis Conference presented righteousness by faith - a message largely rejected but now reviving!",
+                    difficulty: 2
+                },
+                {
+                    type: "calculate",
+                    question: "The number 137 appears in physics (fine structure constant ≈ 1/137). 1888 + 137 = ?",
+                    answer: 2025,
+                    options: [2025, 2024, 2030, 2000],
+                    explanation: "1888 + 137 = 2025. The fine structure constant (fundamental physics) connects to prophetic timing!",
+                    difficulty: 3
+                },
+                {
+                    type: "identify",
+                    question: "504 years = 7 × 72. From Luther's stand in 1521 + 504 = ?",
+                    answer: 2025,
+                    options: [2025, 2021, 2030, 2024],
+                    explanation: "1521 + 504 = 2025. The Reformation timeline also converges on this prophetically significant year!",
+                    difficulty: 3
+                },
+                {
+                    type: "pattern",
+                    question: "2025 is a perfect square of what number?",
+                    answer: 45,
+                    options: [45, 44, 46, 50],
+                    explanation: "45² = 2,025. This mathematical elegance adds to the year's prophetic significance!",
+                    difficulty: 2
+                }
+            ]
+        };
+        
+        // Flatten all questions for 'all' category
+        function getAllQuestions() {
+            let all = [];
+            for (let cat in questions) {
+                all = all.concat(questions[cat]);
+            }
+            return all;
+        }
+        
+        // ==================== GAME STATE ====================
+        let gameState = {
+            mode: 'standard',
+            category: 'all',
+            currentQuestion: 0,
+            totalQuestions: 20,
+            score: 0,
+            streak: 0,
+            bestStreak: 0,
+            correct: 0,
+            timeLeft: 600,
+            timerId: null,
+            questionTimes: [],
+            questionStartTime: 0,
+            currentQuestions: [],
+            answered: false,
+            totalXP: parseInt(localStorage.getItem('patternXP') || '0'),
+            level: 1
+        };
+        
+        // ==================== INITIALIZATION ====================
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPlayerData();
+            setupCategoryButtons();
+        });
+        
+        function loadPlayerData() {
+            gameState.totalXP = parseInt(localStorage.getItem('patternXP') || '0');
+            updateLevelDisplay();
+        }
+        
+        function updateLevelDisplay() {
+            const xp = gameState.totalXP;
+            let level, title, nextLevelXP;
+            
+            if (xp < 1000) { level = 1; title = 'NOVICE'; nextLevelXP = 1000; }
+            else if (xp < 3000) { level = 2; title = 'APPRENTICE'; nextLevelXP = 3000; }
+            else if (xp < 7000) { level = 3; title = 'ADEPT'; nextLevelXP = 7000; }
+            else if (xp < 14000) { level = 4; title = 'EXPERT'; nextLevelXP = 14000; }
+            else if (xp < 24010) { level = 5; title = 'MASTER'; nextLevelXP = 24010; }
+            else if (xp < 49000) { level = 6; title = 'SAGE'; nextLevelXP = 49000; }
+            else { level = 7; title = 'SEER'; nextLevelXP = 77777; }
+            
+            gameState.level = level;
+            
+            const prevLevelXP = level === 1 ? 0 : [0, 1000, 3000, 7000, 14000, 24010, 49000][level - 1];
+            const progress = ((xp - prevLevelXP) / (nextLevelXP - prevLevelXP)) * 100;
+            
+            document.getElementById('totalScore').textContent = xp.toLocaleString();
+            document.getElementById('xpFill').style.width = Math.min(progress, 100) + '%';
+            document.getElementById('xpText').textContent = `${xp.toLocaleString()} / ${nextLevelXP.toLocaleString()} XP`;
+            document.getElementById('levelBadge').textContent = `${'⭐'.repeat(Math.min(level, 7))} ${title}`;
+        }
+        
+        function setupCategoryButtons() {
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('selected'));
+                    this.classList.add('selected');
+                    gameState.category = this.dataset.cat;
+                });
+            });
+        }
+        
+        // ==================== GAME CONTROL ====================
+        function startGame(mode) {
+            gameState.mode = mode;
+            
+            // Set questions and time based on mode
+            switch(mode) {
+                case 'quickfire':
+                    gameState.totalQuestions = 10;
+                    gameState.timeLeft = 120;
+                    break;
+                case 'standard':
+                    gameState.totalQuestions = 20;
+                    gameState.timeLeft = 600;
+                    break;
+                case 'deep':
+                    gameState.totalQuestions = 35;
+                    gameState.timeLeft = 1200;
+                    break;
+                case 'marathon':
+                    gameState.totalQuestions = 49;
+                    gameState.timeLeft = 1800;
+                    break;
+            }
+            
+            // Reset state
+            gameState.currentQuestion = 0;
+            gameState.score = 0;
+            gameState.streak = 0;
+            gameState.bestStreak = 0;
+            gameState.correct = 0;
+            gameState.questionTimes = [];
+            gameState.answered = false;
+            
+            // Get questions
+            let pool = gameState.category === 'all' ? getAllQuestions() : questions[gameState.category];
+            gameState.currentQuestions = shuffleArray([...pool]).slice(0, gameState.totalQuestions);
+            
+            // Show game screen
+            showScreen('gameScreen');
+            document.getElementById('totalRounds').textContent = gameState.totalQuestions;
+            
+            // Start timer
+            startTimer();
+            
+            // Load first question
+            loadQuestion();
+        }
+        
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+        
+        function startTimer() {
+            updateTimerDisplay();
+            gameState.timerId = setInterval(() => {
+                gameState.timeLeft--;
+                updateTimerDisplay();
+                if (gameState.timeLeft <= 0) {
+                    clearInterval(gameState.timerId);
+                    endGame();
+                }
+            }, 1000);
+        }
+        
+        function updateTimerDisplay() {
+            const mins = Math.floor(gameState.timeLeft / 60);
+            const secs = gameState.timeLeft % 60;
+            const timerEl = document.getElementById('timer');
+            timerEl.textContent = `${mins}:${secs.toString().padStart(2, '0')}`;
+            
+            timerEl.classList.remove('warning', 'danger');
+            if (gameState.timeLeft <= 30) timerEl.classList.add('danger');
+            else if (gameState.timeLeft <= 60) timerEl.classList.add('warning');
+        }
+        
+        function loadQuestion() {
+            if (gameState.currentQuestion >= gameState.currentQuestions.length) {
+                endGame();
+                return;
+            }
+            
+            const q = gameState.currentQuestions[gameState.currentQuestion];
+            gameState.answered = false;
+            gameState.questionStartTime = Date.now();
+            
+            // Update round info
+            document.getElementById('currentRound').textContent = gameState.currentQuestion + 1;
+            document.getElementById('gameScore').textContent = gameState.score;
+            
+            // Update streak display
+            const streakFire = document.getElementById('streakFire');
+            streakFire.style.display = gameState.streak >= 3 ? 'inline' : 'none';
+            document.getElementById('streakCount').textContent = gameState.streak;
+            
+            // Difficulty indicator
+            const diffText = ['⭐', '⭐⭐', '⭐⭐⭐'][q.difficulty - 1] + ' ' + ['Novice', 'Adept', 'Master'][q.difficulty - 1];
+            document.getElementById('difficultyIndicator').textContent = diffText;
+            
+            // Build question HTML
+            const categoryIcons = {
+                math: '🔢', biblical: '📖', scientific: '🔬', prophetic: '🔮', probability: '📊', timeline: '⏳'
+            };
+            
+            let html = `
+                <div class="question-type">${categoryIcons[findCategory(q)] || '🎯'} ${findCategory(q).toUpperCase()}</div>
+                <div class="question-text">${q.question}</div>
+            `;
+            
+            // Add pattern display for some question types
+            if (q.pattern) {
+                html += `<div class="pattern-display">${q.pattern}</div>`;
+            }
+            
+            // Options
+            const shuffledOptions = shuffleArray([...q.options]);
+            html += '<div class="options-grid">';
+            shuffledOptions.forEach((opt, i) => {
+                html += `<button class="option-btn" onclick="selectAnswer('${opt}', this)">${opt}</button>`;
+            });
+            html += '</div>';
+            
+            document.getElementById('questionCard').innerHTML = html;
+            document.getElementById('feedbackBox').classList.remove('show');
+        }
+        
+        function findCategory(question) {
+            for (let cat in questions) {
+                if (questions[cat].includes(question)) return cat;
+            }
+            return 'all';
+        }
+        
+        function selectAnswer(answer, element) {
+            if (gameState.answered) return;
+            gameState.answered = true;
+            
+            const q = gameState.currentQuestions[gameState.currentQuestion];
+            const isCorrect = answer.toString() === q.answer.toString();
+            const timeTaken = (Date.now() - gameState.questionStartTime) / 1000;
+            gameState.questionTimes.push(timeTaken);
+            
+            // Disable all options
+            document.querySelectorAll('.option-btn').forEach(btn => {
+                btn.classList.add('disabled');
+                if (btn.textContent === q.answer.toString()) {
+                    btn.classList.add('correct');
+                }
+            });
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                gameState.correct++;
+                gameState.streak++;
+                if (gameState.streak > gameState.bestStreak) gameState.bestStreak = gameState.streak;
+                
+                // Calculate points
+                let points = 100 * q.difficulty;
+                if (timeTaken < 5) points += 50; // Speed bonus
+                if (gameState.streak >= 3) points += 25 * gameState.streak; // Streak bonus
+                
+                gameState.score += points;
+                
+                showFeedback(true, q.explanation, points);
+            } else {
+                element.classList.add('incorrect');
+                gameState.streak = 0;
+                showFeedback(false, q.explanation, 0);
+            }
+            
+            document.getElementById('gameScore').textContent = gameState.score;
+            document.getElementById('streakCount').textContent = gameState.streak;
+        }
+        
+        function showFeedback(correct, explanation, points) {
+            const box = document.getElementById('feedbackBox');
+            box.className = 'feedback-box show ' + (correct ? 'correct' : 'incorrect');
+            
+            document.getElementById('feedbackTitle').textContent = correct ? '✅ CORRECT!' : '❌ NOT QUITE';
+            document.getElementById('feedbackExplanation').innerHTML = explanation;
+            document.getElementById('pointsEarned').textContent = correct ? `+${points} points` : '';
+        }
+        
+        function nextQuestion() {
+            gameState.currentQuestion++;
+            loadQuestion();
+        }
+        
+        function endGame() {
+            clearInterval(gameState.timerId);
+            
+            // Calculate XP earned
+            let xpEarned = 0;
+            switch(gameState.mode) {
+                case 'quickfire': xpEarned = Math.round(gameState.score * 0.5); break;
+                case 'standard': xpEarned = Math.round(gameState.score * 0.75); break;
+                case 'deep': xpEarned = Math.round(gameState.score * 1.0); break;
+                case 'marathon': xpEarned = Math.round(gameState.score * 1.25); break;
+            }
+            
+            // Bonus for accuracy
+            const accuracy = gameState.currentQuestion > 0 ? (gameState.correct / gameState.currentQuestion * 100) : 0;
+            if (accuracy >= 90) xpEarned += 200;
+            else if (accuracy >= 70) xpEarned += 100;
+            
+            // Save XP
+            gameState.totalXP += xpEarned;
+            localStorage.setItem('patternXP', gameState.totalXP);
+            
+            // Show results
+            showScreen('resultsScreen');
+            
+            // Determine rating
+            let rating, ratingClass;
+            if (accuracy >= 90) { rating = 'DIVINE VISION!'; ratingClass = 'excellent'; }
+            else if (accuracy >= 70) { rating = 'STRONG PERCEPTION!'; ratingClass = 'good'; }
+            else if (accuracy >= 50) { rating = 'DEVELOPING SIGHT'; ratingClass = 'average'; }
+            else { rating = 'KEEP TRAINING'; ratingClass = 'learning'; }
+            
+            document.getElementById('resultsTitle').textContent = rating;
+            document.getElementById('resultsTitle').className = 'results-title ' + ratingClass;
+            document.getElementById('finalScore').textContent = gameState.score.toLocaleString();
+            document.getElementById('correctAnswers').textContent = gameState.correct;
+            document.getElementById('accuracy').textContent = Math.round(accuracy) + '%';
+            document.getElementById('bestStreak').textContent = gameState.bestStreak;
+            
+            const avgTime = gameState.questionTimes.length > 0 
+                ? (gameState.questionTimes.reduce((a,b) => a+b, 0) / gameState.questionTimes.length).toFixed(1)
+                : 0;
+            document.getElementById('avgTime').textContent = avgTime + 's';
+            
+            document.getElementById('xpEarned').textContent = '+' + xpEarned + ' XP';
+            
+            // Achievements
+            let achievements = [];
+            if (gameState.bestStreak >= 7) achievements.push('🔥 SEVEN STREAK');
+            if (accuracy === 100) achievements.push('💎 PERFECT VISION');
+            if (avgTime < 5 && gameState.correct > 0) achievements.push('⚡ LIGHTNING FAST');
+            if (gameState.mode === 'marathon' && accuracy >= 70) achievements.push('🏆 MARATHON MASTER');
+            if (gameState.correct >= 49) achievements.push('✨ 7² COMPLETE');
+            
+            const achieveHtml = achievements.length > 0 
+                ? '<h3 style="color: var(--gold); margin-bottom: 1rem;">🏅 ACHIEVEMENTS UNLOCKED</h3>' +
+                  achievements.map(a => `<div class="achievement-badge">${a}</div>`).join('')
+                : '';
+            document.getElementById('achievementsEarned').innerHTML = achieveHtml;
+            
+            // Confetti for good scores
+            if (accuracy >= 70) {
+                createConfetti();
+            }
+            
+            updateLevelDisplay();
+        }
+        
+        function createConfetti() {
+            const colors = ['#f1c40f', '#00d4ff', '#9b59b6', '#00ff88', '#ff4757'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDuration = (2 + Math.random() * 2) + 's';
+                    document.body.appendChild(confetti);
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 50);
+            }
+        }
+        
+        function restartGame() {
+            showScreen('welcomeScreen');
+        }
+        
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

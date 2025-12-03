@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://patterns.sevencubedseven.com/sitemap.xml
